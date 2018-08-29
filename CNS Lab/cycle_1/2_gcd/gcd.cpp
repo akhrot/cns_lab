@@ -48,7 +48,7 @@ int main()
 	
 	clock_t end_time = clock();
 	
-	cout<<"\ngcd(a, b) = "<<a<<" Time taken = "<<(double)(end_time-start_time)/(CLOCKS_PER_SEC)*1000<<"us\n";
+	cout<<"\ngcd(a, b) = "<<a<<" Time taken = "<<(double)(end_time-start_time)/(CLOCKS_PER_SEC)*1000<<"ms\n";
 	
 	mpz_clear(a);
 	mpz_clear(b);
