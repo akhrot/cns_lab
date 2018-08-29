@@ -5,34 +5,34 @@
 #include<assert.h>
 using namespace std;
 
-void gcd( mpz_t &a, mpz_t&b )
+void gcd( mpz_t &a, mpz_t &b, mpz_t &res )
 {
-	mpz_t r;
-	mpz_init( r );
-	mpz_mod( r, a, b );
-	
-	while( mpz_cmp_ui( r, 0 )>0 )
+	if( mpz_cmp_ui( a, 0 )==0 )
 	{
-		mpz_set( a, b );
-		mpz_set( b, r );
-		
-		mpz_mod( r, a, b );
+		mpz_set( res, b );
+		return;
 	}
 	
-	mpz_set( a, b );
+	mpz_t r;
+	mpz_init( r );
+	mpz_mod( r, b, a );
+	
+	gcd( r, a, res );
+	
 	mpz_clear( r );
 }
 
 int main()
 {
 	string a_str, b_str;
-	mpz_t a, b;
+	mpz_t a, b, res;
 	
 	cout<<"Enter the numbers a and b : ";
 	cin>>a_str>>b_str;
 	
 	mpz_init( a );
 	mpz_init( b );
+	mpz_init( res );
 	mpz_set_ui( a, 0 );
 	mpz_set_ui( b, 0 );
 	
@@ -44,11 +44,11 @@ int main()
 	
 	clock_t start_time = clock();
 	
-	gcd( a, b );
+	gcd( a, b, res );
 	
 	clock_t end_time = clock();
 	
-	cout<<"\ngcd(a, b) = "<<a<<" Time taken = "<<(double)(end_time-start_time)/(CLOCKS_PER_SEC)*1000<<"us\n";
+	cout<<"\ngcd(a, b) = "<<res<<" Time taken = "<<(double)(end_time-start_time)/(CLOCKS_PER_SEC)*1000<<"ms\n";
 	
 	mpz_clear(a);
 	mpz_clear(b);
