@@ -39,8 +39,8 @@ int main()
 	assert( mpz_set_str( a, a_str.c_str(), 10 )==0 );
 	assert( mpz_set_str( b, b_str.c_str(), 10 )==0 );
 	
-	cout<<"a = "<<a<<endl;
-	cout<<"b = "<<b<<endl;
+//	cout<<"a = "<<a<<endl;
+//	cout<<"b = "<<b<<endl;
 	
 	clock_t start_time = clock();
 	
@@ -48,10 +48,11 @@ int main()
 	
 	clock_t end_time = clock();
 	
-	cout<<"\ngcd(a, b) = "<<res<<" Time taken = "<<(double)(end_time-start_time)/(CLOCKS_PER_SEC)*1000<<"ms\n";
+	cout<<"\ngcd(a, b) = "<<res<<"\nTime taken = "<<(double)(end_time-start_time)/(CLOCKS_PER_SEC)*1000<<"ms\n";
 	
 	mpz_clear(a);
 	mpz_clear(b);
+	mpz_clear(res);
 	
 	return 0;
 }
