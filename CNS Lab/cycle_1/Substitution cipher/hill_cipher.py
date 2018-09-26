@@ -45,7 +45,7 @@ def hillCipher(message, key, n, decipher, baseChar=ord('A'), alphaLen=26):
 	else:
 		print "Enciphering\n"
 	
-	print "Keymatrix = \n\n", keymatrix, "\n\n"
+	#print "Keymatrix = \n\n", keymatrix, "\n\n"
 	
 	result = ''
 	for i in range(len(message)/n):
