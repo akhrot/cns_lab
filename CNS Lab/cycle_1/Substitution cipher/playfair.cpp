@@ -101,8 +101,11 @@ string playfairCipher(string message, string key, bool decipher = false)
 {
 	vector< vector<char> > keymatrix = getKeyMatrix(key);
 	
-	cout<<"Generated key matrix : \n\n";
-	dispMatrix(keymatrix);
+	if( !decipher )
+	{
+		cout<<"Generated key matrix : \n\n";
+		dispMatrix(keymatrix);
+	}
 	
 	int ptr = 0;
 	
