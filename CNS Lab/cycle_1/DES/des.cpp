@@ -349,11 +349,11 @@ int main()
 	string ciphertext;
 	
 	ciphertext = des( plaintext, key );
-	cout<<"Ciphertext : "<<ciphertext<<endl;
+	cout<<"\nCiphertext : "<<endl<<ciphertext<<endl;
 	
 	cout<<"\nDeciphering---\n";
 	string decipheredtext = des( ciphertext, key, true );
-	cout<<"Deciphered text : "<<decipheredtext<<endl;
+	cout<<"\nDeciphered text : "<<endl<<decipheredtext<<endl;
 	
 	return 0;
 }
