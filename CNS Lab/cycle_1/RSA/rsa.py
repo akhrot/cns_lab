@@ -36,7 +36,9 @@ def main():
 	print("n = p*q =", n)
 	print("totient(n) =", totient)
 
-	e = find_coprime_e( totient )
+	start = int( input( "Enter the minimum value of e : " ) )
+
+	e = find_coprime_e( totient, start )
 	print("e =", e)
 
 	d = gcdExt(e, totient)
